@@ -1,0 +1,7 @@
+author: Waldek Kozaczuk
+name: node-osv
+title: Node with Express on OSv
+version: "1.0"
+require:
+- osv.node-js
+created: "2018-06-15T00:44:16-04:00"

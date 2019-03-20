@@ -5,6 +5,7 @@ import (
     "net/http"
     "C"
     "fmt"
+    "runtime"
 )
 
 func main() {
@@ -13,6 +14,7 @@ func main() {
 //export GoMain
 func GoMain() {
     router := NewRouter()
+    fmt.Printf("Detected %d CPUs\n", runtime.NumCPU());
     fmt.Println("Listening on port 8080");
     log.Fatal(http.ListenAndServe(":8080", router))
 }
