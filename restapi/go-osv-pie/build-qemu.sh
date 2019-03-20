@@ -1,3 +1,4 @@
-go build -buildmode=pie -o rest
-strip rest
-capstan package compose -v go-osv-pie
+THIS_PATH=$(dirname $0)
+$THIS_PATH/build-app.sh
+
+capstan package compose -v go-osv

@@ -1,5 +1,7 @@
 author: Waldek Kozaczuk
-name: go-osv-pie
-title: Golang OSv pie
+name: go-osv
+title: Golang OSv
 version: "1.0"
+require:
+- osv.run-go
 created: "2018-06-15T00:44:16-04:00"

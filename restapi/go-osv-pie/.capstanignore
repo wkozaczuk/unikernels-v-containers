@@ -1,2 +1,5 @@
 /*.go
 /build*
+/Dockerfile
+/restapi
+/restapi.h

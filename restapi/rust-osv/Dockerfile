@@ -4,6 +4,6 @@ WORKDIR /app
 
 ADD ./target/release/httpserver /app
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD ["/app/rest"]
+CMD ["/app/httpserver"]

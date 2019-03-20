@@ -2,10 +2,8 @@ FROM scratch
 
 WORKDIR /app
 
-ADD ./rest /app
+ADD ./restapi /app
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD ["/app/rest"]
-
-
+CMD ["/app/restapi"]
