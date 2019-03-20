@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD ./target/restapi-1.0-SNAPSHOT-jar-with-dependencies.jar /app/app.jar
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["java","-jar","app.jar"]
 
