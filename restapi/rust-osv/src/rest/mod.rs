@@ -47,20 +47,21 @@ fn api_responses(req: Request<Body>, todos: &Vec<Todo>)
             lazy_static! {
                 static ref RE: Regex = Regex::new(r"/todos/(\d+)").unwrap();
             }
-            let caps = RE.captures(path);
-            match caps.map(|c| c.get(1).map(|s| s.as_str().parse::<usize>())) {
-                Some(Some(Ok(id))) if id < todos.len() => {
-                    let json = serde_json::to_string(&todos[id]).unwrap();
-                    Box::new(future::ok(build_json_response(json)))
-                }
-                _ => {
-                    // Return 404 not found response.
-                    let body = Body::from(NOTFOUND);
-                    Box::new(future::ok(Response::builder()
-                                                 .status(StatusCode::NOT_FOUND)
-                                                 .body(body)
-                                                 .unwrap()))
-                }
+            match RE.captures(path).
+                and_then(|c| c.get(1).
+                map(|s| s.as_str().parse::<usize>())) {
+                    Some(Ok(id)) if id < todos.len() => {
+                        let json = serde_json::to_string(&todos[id]).unwrap();
+                        Box::new(future::ok(build_json_response(json)))
+                    }
+                    _ => {
+                        // Return 404 not found response.
+                        let body = Body::from(NOTFOUND);
+                        Box::new(future::ok(Response::builder()
+                                                     .status(StatusCode::NOT_FOUND)
+                                                     .body(body)
+                                                     .unwrap()))
+                    }
             }
         }
     }
@@ -82,7 +83,7 @@ pub fn start_server() {
         })
     };
 
-    let addr = ([0, 0, 0, 0], 3000).into();
+    let addr = ([0, 0, 0, 0], 8080).into();
 
     let server = Server::bind(&addr)
         .serve(service)
