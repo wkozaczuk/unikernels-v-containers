@@ -1,0 +1,7 @@
+author: Waldek Kozaczuk
+name: java-osv
+title: Java OSv
+version: "1.0"
+require:
+- osv.openjdk10-java-base
+created: "2018-06-15T00:44:16-04:00"
