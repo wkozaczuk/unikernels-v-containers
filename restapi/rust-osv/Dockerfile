@@ -2,10 +2,8 @@ FROM scratch
 
 WORKDIR /app
 
-ADD ./rest /app
+ADD ./target/release/httpserver /app
 
 EXPOSE 80
 
 CMD ["/app/rest"]
-
-

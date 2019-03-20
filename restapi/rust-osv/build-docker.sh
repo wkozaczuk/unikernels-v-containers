@@ -1,2 +1,4 @@
-go build -buildmode=pie -o rest
-docker build . -t tg/go-rest-pie
+THIS_PATH=$(dirname $0)
+$THIS_PATH/build-app.sh
+
+docker build $THIS_PATH -t uc/rust-rest
