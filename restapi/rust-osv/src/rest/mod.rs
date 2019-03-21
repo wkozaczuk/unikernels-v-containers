@@ -5,6 +5,7 @@ extern crate hyper;
 extern crate pretty_env_logger;
 extern crate serde;
 extern crate serde_json;
+extern crate num_cpus;
 
 use self::futures::future;
 
@@ -89,6 +90,7 @@ pub fn start_server() {
         .serve(service)
         .map_err(|e| eprintln!("server error: {}", e));
 
+    println!("Detected {} CPUs", num_cpus::get());
     println!("Listening on http://{}", addr);
 
     rt::run(server);

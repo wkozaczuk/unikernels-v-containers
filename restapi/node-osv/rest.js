@@ -26,6 +26,10 @@ app.get('/todos/:todoId', function (req, res) {
     res.sendStatus(404);
 });
 
-console.log("Detected " + os.cpus().length + " CPUs");
+if (os.cpus())
+  console.log("Detected " + os.cpus().length + " CPUs");
+else
+  console.log("Could not detect number of CPUs!");
+
 console.log("Listening on port 8080 ...");
 app.listen(8080);
