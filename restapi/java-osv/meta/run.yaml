@@ -1,5 +1,5 @@
 runtime: native
 config_set:
   default:
-    bootcmd: "/java.so -jar /hello.jar"
+    bootcmd: "/java.so -Dvertx.disableFileCPResolving=true -jar /hello.jar"
 config_set_default: default
