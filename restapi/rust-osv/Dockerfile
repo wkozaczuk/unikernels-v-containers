@@ -1,4 +1,4 @@
-FROM scratch
+FROM ubuntu:18.10
 
 WORKDIR /app
 
