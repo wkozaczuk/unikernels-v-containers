@@ -2,7 +2,7 @@
 
 if [[ "$1" == "" ]]; then
   echo "Missing app name parameter!"
-  echo "Usage: ./run-rest-in-OSv-on-QEMU.sh APP"
+  echo "Usage: ./run-rest-in-OSv-on-FC.sh APP"
   exit 1
 fi
 APP=$1
@@ -26,4 +26,11 @@ case $2 in
     ;;
 esac
 
-capstan run -v -c $CPUS -n bridge -b virbr0 $APP-rest-osv
+KERNEL_PATH="$HOME/.capstan/repository/mike/osv-loader/loader.elf"
+IMAGE_PATH="$HOME/.capstan/repository/$APP-rest-osv/$APP-rest-osv.qemu"
+
+THIS_DIR=$(dirname $0)
+CMD=$(grep bootcmd $THIS_DIR/restapi/$APP-osv/meta/run.yaml | grep -o -P '\/.[^"]*')
+echo $CMD
+
+$HOME/projects/osv/scripts/firecracker.py -V -c $CPUS -n -k $KERNEL_PATH -i $IMAGE_PATH -m 256M -e "$CMD"
