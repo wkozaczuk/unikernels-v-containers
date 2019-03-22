@@ -3,11 +3,11 @@ let express = require('express');
 let app = express();
 
 let todos = [
-  {name:'Write presentation'},
-  {name:'Host meetup'},
-  {name:'Run tests'},
-  {name: 'Stand in traffic'},
-  {name: 'Learn Rust'}
+  {name:'Write presentation', completed:false, due: new Date()},
+  {name:'Host meetup', completed:false, due: new Date()},
+  {name:'Run tests', completed:false, due: new Date()},
+  {name: 'Stand in traffic', completed:false, due: new Date()},
+  {name: 'Learn Rust', completed:false, due: new Date()}
 ];
 
 app.get('/', function (req, res) {
@@ -31,5 +31,5 @@ if (os.cpus())
 else
   console.log("Could not detect number of CPUs!");
 
-console.log("Listening on port 8080 ...");
+console.log("Node.js listening on port 8080 ...");
 app.listen(8080);

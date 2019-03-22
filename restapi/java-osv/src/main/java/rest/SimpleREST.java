@@ -26,7 +26,7 @@ public class SimpleREST extends AbstractVerticle {
 
     System.out.println("Detected " + Runtime.getRuntime().availableProcessors() + " CPUs and " + 
        (Runtime.getRuntime().totalMemory() / (1024 * 1024)) + "MB of memory");
-    System.out.println("Listening on port 8080 ...");
+    System.out.println("Java listening on port 8080 ...");
 
     vertx.deployVerticle(SimpleREST.class, options);
   }

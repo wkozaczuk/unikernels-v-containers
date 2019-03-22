@@ -38,7 +38,7 @@ func TodoById(w http.ResponseWriter, r *http.Request) {
     todoId, _ := strconv.Atoi(vars["todoId"])
 
     if todoId < len(todos) {
-   	todoObj := todos[todoId]
+	todoObj := todos[todoId]
 
 	if err := json.NewEncoder(w).Encode(todoObj); err != nil {
             panic(err)

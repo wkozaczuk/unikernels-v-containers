@@ -10,6 +10,6 @@ import (
 func main() {
     router := NewRouter()
     fmt.Printf("Detected %d CPUs\n", runtime.NumCPU());
-    fmt.Println("Listening on port 8080");
+    fmt.Println("Go listening on port 8080");
     log.Fatal(http.ListenAndServe(":8080", router))
 }

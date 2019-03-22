@@ -6,18 +6,22 @@ extern crate pretty_env_logger;
 extern crate serde;
 extern crate serde_json;
 extern crate num_cpus;
+extern crate chrono;
 
 use self::futures::future;
 
 use self::hyper::{Body, Method, Request, Response, Server, StatusCode, header};
 use self::hyper::rt::{self, Future};
 use self::hyper::service::service_fn;
+use self::chrono::{DateTime, Local};
 
 use self::regex::Regex;
 
 #[derive(Debug, serde_derive::Serialize)]
 struct Todo<'a> {
-    name: &'a str
+    name: &'a str,
+    completed: bool,
+    due: DateTime<Local>
 }
 
 const NOTFOUND: &[u8] = b"Not Found";
@@ -73,11 +77,11 @@ pub fn start_server() {
 
     let service = move || { 
         let todos = vec![
-            Todo{name:"Write presentation"},
-            Todo{name:"Host meetup"},
-            Todo{name:"Run tests"},
-            Todo{name: "Stand in traffic"},
-            Todo{name: "Learn Rust"}];
+            Todo{name:"Write presentation", completed:false, due:Local::now()},
+            Todo{name:"Host meetup", completed:false, due:Local::now()},
+            Todo{name:"Run tests", completed:false, due:Local::now()},
+            Todo{name:"Stand in traffic", completed:false, due:Local::now()},
+            Todo{name:"Learn Rust", completed:false, due:Local::now()}];
 
         service_fn(move |req| {
             api_responses(req, &todos)
@@ -91,7 +95,7 @@ pub fn start_server() {
         .map_err(|e| eprintln!("server error: {}", e));
 
     println!("Detected {} CPUs", num_cpus::get());
-    println!("Listening on http://{}", addr);
+    println!("Rust listening on port 8080");
 
     rt::run(server);
 }
