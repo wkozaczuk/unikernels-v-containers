@@ -1,0 +1,52 @@
+[ {
+  "id" : "1",
+  "name" : "Write presentation",
+  "completed" : "false",
+  "due" : "23-03-2019"
+}, {
+  "id" : "2",
+  "name" : "Host meetup",
+  "completed" : "false",
+  "due" : "23-03-2019"
+}, {
+  "id" : "3",
+  "name" : "Run tests",
+  "completed" : "false",
+  "due" : "23-03-2019"
+}, {
+  "id" : "4",
+  "name" : "Stand in traffic",
+  "completed" : "false",
+  "due" : "23-03-2019"
+}, {
+  "id" : "5",
+  "name" : "Learn Vertx",
+  "completed" : "false",
+  "due" : "23-03-2019"
+} ]-----------------------------------
+Running 30s test @ http://192.168.1.73:8080/todos
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.32ms    5.64ms 216.32ms   98.55%
+    Req/Sec     5.17k   648.56     6.75k    92.60%
+  1542815 requests in 30.01s, 807.77MB read
+Requests/sec:  51409.24
+Transfer/sec:     26.92MB
+-----------------------------------
+Running 30s test @ http://192.168.1.73:8080/todos
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.26ms    6.71ms 219.84ms   99.43%
+    Req/Sec     5.31k   435.48    12.78k    93.04%
+  1587983 requests in 30.10s, 831.42MB read
+Requests/sec:  52756.73
+Transfer/sec:     27.62MB
+-----------------------------------
+Running 30s test @ http://192.168.1.73:8080/todos
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.34ms    4.33ms 219.23ms   99.46%
+    Req/Sec     4.74k     1.02k    7.05k    68.98%
+  1418641 requests in 30.10s, 742.75MB read
+Requests/sec:  47126.19
+Transfer/sec:     24.67MB

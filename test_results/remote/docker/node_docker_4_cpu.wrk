@@ -1,0 +1,27 @@
+[{"name":"Write presentation","completed":false,"due":"2019-03-23T19:45:28.779Z"},{"name":"Host meetup","completed":false,"due":"2019-03-23T19:45:28.779Z"},{"name":"Run tests","completed":false,"due":"2019-03-23T19:45:28.779Z"},{"name":"Stand in traffic","completed":false,"due":"2019-03-23T19:45:28.779Z"},{"name":"Learn Rust","completed":false,"due":"2019-03-23T19:45:28.779Z"}]-----------------------------------
+Running 30s test @ http://192.168.1.73:8080/todos
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    11.06ms    2.02ms  63.01ms   97.06%
+    Req/Sec     0.91k    86.68     1.01k    82.07%
+  272233 requests in 30.03s, 154.22MB read
+Requests/sec:   9063.99
+Transfer/sec:      5.13MB
+-----------------------------------
+Running 30s test @ http://192.168.1.73:8080/todos
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    10.60ms    1.21ms  28.02ms   92.12%
+    Req/Sec     0.95k    48.18     1.39k    64.97%
+  283204 requests in 30.03s, 160.43MB read
+Requests/sec:   9429.33
+Transfer/sec:      5.34MB
+-----------------------------------
+Running 30s test @ http://192.168.1.73:8080/todos
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    10.30ms    1.16ms  27.87ms   95.77%
+    Req/Sec     0.97k    43.12     1.11k    80.00%
+  291285 requests in 30.03s, 165.01MB read
+Requests/sec:   9699.10
+Transfer/sec:      5.49MB
