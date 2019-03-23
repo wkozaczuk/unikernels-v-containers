@@ -26,4 +26,4 @@ case $2 in
     ;;
 esac
 
-sudo /home/wkozaczuk/projects/go/bin/capstan run -v -c $CPUS -n bridge -b virbr0 $APP-rest-osv
+sudo /home/wkozaczuk/projects/go/bin/capstan run -v -c $CPUS -n bridge -b virbr1 $APP-rest-osv

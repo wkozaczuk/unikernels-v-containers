@@ -18,3 +18,5 @@ pushd $APP_PATH && ./build-app.sh && popd
 
 echo "Building docker image uc/$APP-rest .."
 pushd $APP_PATH && docker build . -t uc/$APP-rest && popd
+
+#docker rmi $(docker images -qa -f 'dangling=true')

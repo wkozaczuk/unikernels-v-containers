@@ -33,4 +33,4 @@ THIS_DIR=$(dirname $0)
 CMD=$(grep bootcmd $THIS_DIR/restapi/$APP-osv/meta/run.yaml | grep -o -P '\/.[^"]*')
 echo $CMD
 
-$HOME/projects/osv/scripts/firecracker.py -V -c $CPUS -n -k $KERNEL_PATH -i $IMAGE_PATH -m 256M -e "$CMD"
+$HOME/projects/osv/scripts/firecracker.py -V -c $CPUS -n -k $KERNEL_PATH -i $IMAGE_PATH -m 256M -e "$CMD" -b virbr1
